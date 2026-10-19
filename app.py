@@ -57,11 +57,11 @@ if uploaded_file is not None and api_key_input:
                 # Gabungkan prompt dengan daftar gambar halaman komik
                 contents = [prompt] + images
                 
-                # Panggil model Gemini (menggunakan gemini-2.5-flash yang cepat dan multimodal)
-                response = client.models.generate_content(
-                    model='gemini-3.8-flash',
-                    contents=contents
-                )
+                # Panggil model Gemini
+response = client.models.generate_content(
+    model='gemini-2.5-flash',
+    contents=contents
+)
                 
                 st.markdown("---")
                 st.subheader("📜 Hasil Naskah Video Recap:")
