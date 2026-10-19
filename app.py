@@ -9,7 +9,7 @@ from io import BytesIO
 st.set_page_config(page_title="Universal AI Comic Recap Generator", layout="wide")
 
 st.title("🎬 Universal AI Comic Recap Generator")
-st.markdown("Unggah PDF komik, pilih AI favoritmu (Gemini, Groq, OpenAI, Claude, DeepSeek, atau OpenRouter), lalu buat naskah video *recap*!")
+st.markdown("Unggah PDF komik, pilih AI favoritmu (Gemini, Groq, OpenAI, Claude, DeepSeek, atau OpenRouter), lalu buat naskah video *recap* secara instan!")
 
 # Fungsi bantu untuk konversi PIL Image ke Base64
 def image_to_base64(pil_img):
@@ -170,12 +170,12 @@ if uploaded_file is not None and api_key_input:
                             "image_url": {"url": f"data:image/jpeg;base64,{b64_img}"}
                         })
                     response = client.chat.completions.create(
-                        model="google/gemini-2.0-flash-001",
+                        model="meta-llama/llama-3.2-11b-vision-instruct:free",
                         messages=[{"role": "user", "content": content_payload}]
                     )
                     result_text = response.choices[0].message.content
 
-                # Tampilkan Hasil
+                # Tampilkan Hasil Naskah
                 st.markdown("---")
                 st.subheader(f"📜 Hasil Naskah Video Recap ({ai_provider}):")
                 st.markdown(result_text)
@@ -183,6 +183,7 @@ if uploaded_file is not None and api_key_input:
             except Exception as e:
                 st.error(f"Terjadi kesalahan saat memproses dengan {ai_provider}: {e}")
 
+        # Bersihkan file sementara
         if os.path.exists(temp_pdf_path):
             os.remove(temp_pdf_path)
 else:
