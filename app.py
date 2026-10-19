@@ -59,7 +59,7 @@ if uploaded_file is not None and api_key_input:
                 
                 # Panggil model Gemini (menggunakan gemini-2.5-flash yang cepat dan multimodal)
                 response = client.models.generate_content(
-                    model='gemini-2.5-flash',
+                    model='gemini-3.8-flash',
                     contents=contents
                 )
                 
