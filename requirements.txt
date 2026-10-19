@@ -1,4 +1,6 @@
 streamlit
 pymupdf
 google-genai
+groq
+openai
 Pillow
