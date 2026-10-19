@@ -58,10 +58,10 @@ if uploaded_file is not None and api_key_input:
                 contents = [prompt] + images
                 
                 # Panggil model Gemini
-response = client.models.generate_content(
-    model='gemini-2.5-flash',
-    contents=contents
-)
+                response = client.models.generate_content(
+                    model='gemini-2.5-flash',
+                    contents=contents
+                )
                 
                 st.markdown("---")
                 st.subheader("📜 Hasil Naskah Video Recap:")
