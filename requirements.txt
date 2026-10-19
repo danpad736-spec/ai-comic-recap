@@ -3,4 +3,5 @@ pymupdf
 google-genai
 groq
 openai
+anthropic
 Pillow
