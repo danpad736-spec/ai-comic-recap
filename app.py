@@ -170,7 +170,7 @@ if uploaded_file is not None and api_key_input:
                             "image_url": {"url": f"data:image/jpeg;base64,{b64_img}"}
                         })
                     response = client.chat.completions.create(
-                        model="meta-llama/llama-3.2-11b-vision-instruct:free",
+                        model="google/gemini-flash-1.5-exp:free",
                         messages=[{"role": "user", "content": content_payload}]
                     )
                     result_text = response.choices[0].message.content
